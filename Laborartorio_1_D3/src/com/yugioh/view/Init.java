@@ -210,7 +210,7 @@ public class Init {
 
         scorePlayer.setText(String.valueOf(controller.getPlayerScore()));
         botScore.setText(String.valueOf(controller.getBotScore()));
-        if (!result.contains("Empate.")) {
+        if (!result.contains("Empate.") && !result.contains(" Alguien debe atacar.")) {
             if (selectedPlayerCard == 0) {
                 hideCardAfterWithTimer(panelCard1, 2000);
             }
@@ -230,6 +230,9 @@ public class Init {
 
         if(result.contains("El jugador gana la partida!") || result.contains("El bot gana la partida!")) {
             JOptionPane.showMessageDialog(null,result.contains("El jugador gana la partida!") ? " El jugador gana la partida!" : " El bot gana la partida!");
+            panelCard1.setVisible(false);
+            panelCard2.setVisible(false);
+            panelCard3.setVisible(false);
         }
     }
 

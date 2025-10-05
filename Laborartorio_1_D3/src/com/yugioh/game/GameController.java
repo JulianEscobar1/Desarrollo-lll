@@ -3,7 +3,6 @@ package com.yugioh.game;
 import com.yugioh.api.YugiohApiClient;
 import com.yugioh.model.Card;
 
-import javax.swing.*;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -50,29 +49,57 @@ public class GameController {
         return botScore;
     }
 
-
+    /**
+     * Resuelve una ronda donde el jugador elige una carta y una estadística ("atk"/"def").
+     * El bot elige aleatoriamente una carta no usada y decide aleatoriamente si usa ATK o DEF.
+     */
     public String playRound(int playerIndex, String stat) {
-        lastBotChoice = rand.nextInt(botCards.size());
         Card playerCard = playerCards.get(playerIndex);
+        boolean chosenCard = false;
+        while (!chosenCard) {
+            lastBotChoice = rand.nextInt(botCards.size());
+            if (!botCards.get(lastBotChoice).isUsed()) {
+                chosenCard = true;
+            }
+        }
         Card botCard = botCards.get(lastBotChoice);
+        botCards.get(lastBotChoice).setUsed(true);
 
-        boolean useDef = "def".equalsIgnoreCase(stat);
-        int playerValue = useDef ? playerCard.getDef() : playerCard.getAtk();
-        int botValue = useDef ? botCard.getDef() : botCard.getAtk();
+        boolean usePlayerDef = "def".equalsIgnoreCase(stat);
+        int playerValue = usePlayerDef ? playerCard.getDef() : playerCard.getAtk();
+        boolean useBotDef = rand.nextBoolean();
+        int botValue = useBotDef ? botCard.getDef() : botCard.getAtk();
 
         String message = String.format("Jugador (%s)=%d vs Bot (%s)=%d. ", stat.toUpperCase(), playerValue, botCard.getName(), botValue);
-        if (playerValue > botValue) {
-            playerScore++;
-            message += "Jugador gana.";
-        } else if (playerValue < botValue) {
-            botScore++;
-            message += "Bot gana.";
+
+        if (usePlayerDef && useBotDef) {
+            message += "Alguien debe atacar.";
+            botCards.get(lastBotChoice).setUsed(false);
+        } else if (!usePlayerDef && !useBotDef) {
+            if (playerCard.getAtk() > botCard.getAtk()) {
+                playerScore++;
+                message += "Jugador gana.";
+            } else if (playerCard.getAtk() < botCard.getAtk()) {
+                botScore++;
+                message += "Bot gana.";
+            } else {
+                message += "Empate.";
+            }
         } else {
-            message += "Empate.";
+            if (playerValue > botValue) {
+                playerScore++;
+                message += "Jugador gana.";
+            } else if (playerValue < botValue) {
+                botScore++;
+                message += "Bot gana.";
+            } else {
+                message += "Empate.";
+            }
         }
+
         logs.add(message);
 
-        if(playerScore >= 2 || botScore >= 2) {
+        if (playerScore >= 2 || botScore >= 2) {
             message += playerScore > botScore ? " El jugador gana la partida!" : " El bot gana la partida!";
             playerScore = 0;
             botScore = 0;
@@ -88,4 +115,3 @@ public class GameController {
         return new ArrayList<>(logs);
     }
 }
-

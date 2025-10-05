@@ -15,6 +15,10 @@
               <option value="9c2d3ac5-ca51-46f1-8955-05910bf88b65" />
               <option value="a0d58d36-69e3-4e68-8e1e-c87b445a9105" />
               <option value="284ff43a-644d-434e-884a-79d2c43059bb" />
+              <option value="51affd1c-0f6a-4883-9e1b-78ccacc33716" />
+              <option value="7ea85db3-fb33-4f5c-b011-faf43911065a" />
+              <option value="c33ffc42-1a8b-4bc7-bab0-6a038d93204c" />
+              <option value="ec0d0e3e-1152-43b9-bf2a-1b6bf7c092de" />
             </set>
           </value>
         </entry>
@@ -30,6 +34,12 @@
       </map>
     </option>
     <pendingWorkingSetItems>
+      <entry key="2bd33376-dd23-46ae-855f-97eb7cc424f1">
+        <set>
+          <option value="file://$PROJECT_DIR$/src/com/yugioh/game/GameController.java" />
+          <option value="file://$PROJECT_DIR$/src/com/yugioh/view/Init.java" />
+        </set>
+      </entry>
       <entry key="f45ec420-1ad4-4ef4-a3fd-d941b75df742" />
     </pendingWorkingSetItems>
   </component>

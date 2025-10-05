@@ -5,10 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="39e7320e-5d0a-43f2-a8ab-395d1fd8d3c2" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/src/com/yugioh/api/YugiohApiClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/yugioh/api/YugiohApiClient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/copilot.data.migration.agent.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/copilot.data.migration.agent.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Laborartorio_1_D3/com/yugioh/game/GameController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Laborartorio_1_D3/com/yugioh/game/GameController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Laborartorio_1_D3/com/yugioh/view/Init.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Laborartorio_1_D3/com/yugioh/view/Init.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/yugioh/game/GameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/yugioh/game/GameController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/yugioh/model/Card.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/yugioh/model/Card.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/yugioh/view/Init.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/yugioh/view/Init.form" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/yugioh/view/Init.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/yugioh/view/Init.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -86,7 +87,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1759682723180</updated>
-      <workItem from="1759682724329" duration="5651000" />
+      <workItem from="1759682724329" duration="10753000" />
     </task>
     <servers />
   </component>
@@ -98,32 +99,17 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/com/yugioh/game/GameController.java</url>
-          <line>70</line>
-          <option name="timeStamp" value="15" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/com/yugioh/game/GameController.java</url>
-          <line>68</line>
-          <option name="timeStamp" value="16" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/com/yugioh/game/GameController.java</url>
-          <line>67</line>
-          <option name="timeStamp" value="18" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/com/yugioh/game/GameController.java</url>
-          <line>79</line>
+          <line>107</line>
           <option name="timeStamp" value="21" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/com/yugioh/game/GameController.java</url>
-          <line>77</line>
+          <line>105</line>
           <option name="timeStamp" value="22" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/com/yugioh/game/GameController.java</url>
-          <line>76</line>
+          <line>104</line>
           <option name="timeStamp" value="23" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
@@ -135,6 +121,11 @@
           <url>file://$PROJECT_DIR$/src/com/yugioh/view/Init.java</url>
           <line>230</line>
           <option name="timeStamp" value="25" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/com/yugioh/view/Init.java</url>
+          <line>213</line>
+          <option name="timeStamp" value="26" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
