@@ -92,6 +92,11 @@ public class Init {
                     initCards();
                     logTextArea.setText("");
                     appendLog("Nueva ronda iniciada.");
+                    if (controller.isPlayerTurn()) {
+                        appendLog("El jugador comienza primero.");
+                    } else {
+                        appendLog("El bot comienza primero, y ha elegido su carta.");
+                    }
                     image_card_bot.setIcon(null);
                     name_card_bot.setText("Nombre");
                     atk_card_bot.setText("ATK: ");
@@ -212,13 +217,13 @@ public class Init {
         botScore.setText(String.valueOf(controller.getBotScore()));
         if (!result.contains("Empate.") && !result.contains(" Alguien debe atacar.")) {
             if (selectedPlayerCard == 0) {
-                hideCardAfterWithTimer(panelCard1, 2000);
+                hideCardAfterWithTimer(panelCard1, 1500);
             }
             if (selectedPlayerCard == 1) {
-                hideCardAfterWithTimer(panelCard2, 2000);
+                hideCardAfterWithTimer(panelCard2, 1500);
             }
             if (selectedPlayerCard == 2) {
-                hideCardAfterWithTimer(panelCard3, 2000);
+                hideCardAfterWithTimer(panelCard3, 1500);
             }
         }
         atkButton.setEnabled(false);
@@ -228,11 +233,20 @@ public class Init {
         panelCard2.setBorder(null);
         panelCard3.setBorder(null);
 
-        if(result.contains("El jugador gana la partida!") || result.contains("El bot gana la partida!")) {
-            JOptionPane.showMessageDialog(null,result.contains("El jugador gana la partida!") ? " El jugador gana la partida!" : " El bot gana la partida!");
+        if (result.contains("El jugador gana la partida!") || result.contains("El bot gana la partida!")) {
+            JOptionPane.showMessageDialog(null, result.contains("El jugador gana la partida!") ? " El jugador gana la partida!" : " El bot gana la partida!");
             panelCard1.setVisible(false);
             panelCard2.setVisible(false);
             panelCard3.setVisible(false);
+        }else{
+            if (controller.isPlayerTurn()){
+                appendLog("Turno del jugador, elige una carta.");
+            } else {
+                appendLog("Turno del bot....");
+                Timer timer = new Timer(2500, e -> appendLog("Carta elegida por el bot."));
+                timer.setRepeats(false);
+                timer.start();
+            }
         }
     }
 

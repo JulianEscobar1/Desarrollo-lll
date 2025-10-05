@@ -5,9 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="39e7320e-5d0a-43f2-a8ab-395d1fd8d3c2" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/copilot.data.migration.agent.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/copilot.data.migration.agent.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Laborartorio_1_D3/com/yugioh/game/GameController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Laborartorio_1_D3/com/yugioh/game/GameController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Laborartorio_1_D3/com/yugioh/view/Init$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Laborartorio_1_D3/com/yugioh/view/Init$4.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Laborartorio_1_D3/com/yugioh/view/Init$5.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Laborartorio_1_D3/com/yugioh/view/Init$5.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Laborartorio_1_D3/com/yugioh/view/Init.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Laborartorio_1_D3/com/yugioh/view/Init.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/yugioh/game/GameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/yugioh/game/GameController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/yugioh/view/Init.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/yugioh/view/Init.java" afterDir="false" />
@@ -87,7 +88,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1759682723180</updated>
-      <workItem from="1759682724329" duration="10753000" />
+      <workItem from="1759682724329" duration="13529000" />
     </task>
     <servers />
   </component>
@@ -99,32 +100,32 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/com/yugioh/game/GameController.java</url>
-          <line>107</line>
+          <line>111</line>
           <option name="timeStamp" value="21" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/com/yugioh/game/GameController.java</url>
-          <line>105</line>
+          <line>109</line>
           <option name="timeStamp" value="22" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/com/yugioh/game/GameController.java</url>
-          <line>104</line>
+          <line>108</line>
           <option name="timeStamp" value="23" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/com/yugioh/view/Init.java</url>
-          <line>231</line>
+          <line>236</line>
           <option name="timeStamp" value="24" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/com/yugioh/view/Init.java</url>
-          <line>230</line>
+          <line>235</line>
           <option name="timeStamp" value="25" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/com/yugioh/view/Init.java</url>
-          <line>213</line>
+          <line>218</line>
           <option name="timeStamp" value="26" />
         </line-breakpoint>
       </breakpoints>

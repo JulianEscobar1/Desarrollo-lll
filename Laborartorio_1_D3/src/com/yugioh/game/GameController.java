@@ -8,10 +8,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-/**
- * Controlador de la lógica del juego: reparto de cartas, resolución de rondas y puntuaciones.
- * Mantiene un registro (logs) de las jugadas para que la vista pueda mostrarlas.
- */
 public class GameController {
     private final YugiohApiClient api;
     private List<Card> playerCards = new ArrayList<>();
@@ -21,9 +17,11 @@ public class GameController {
     private final List<String> logs = new ArrayList<>();
     private final Random rand = new Random();
     private int lastBotChoice = -1;
+    private boolean playerTurn = true;
 
     public GameController() {
         api = new YugiohApiClient();
+        playerTurn = rand.nextBoolean();
     }
 
     public void startNewRound() throws IOException, InterruptedException {
@@ -49,10 +47,10 @@ public class GameController {
         return botScore;
     }
 
-    /**
-     * Resuelve una ronda donde el jugador elige una carta y una estadística ("atk"/"def").
-     * El bot elige aleatoriamente una carta no usada y decide aleatoriamente si usa ATK o DEF.
-     */
+    public boolean isPlayerTurn() {
+        return playerTurn;
+    }
+
     public String playRound(int playerIndex, String stat) {
         Card playerCard = playerCards.get(playerIndex);
         boolean chosenCard = false;
@@ -75,25 +73,32 @@ public class GameController {
         if (usePlayerDef && useBotDef) {
             message += "Alguien debe atacar.";
             botCards.get(lastBotChoice).setUsed(false);
+            playerTurn = !playerTurn;
         } else if (!usePlayerDef && !useBotDef) {
             if (playerCard.getAtk() > botCard.getAtk()) {
                 playerScore++;
                 message += "Jugador gana.";
+                playerTurn = !playerTurn;
             } else if (playerCard.getAtk() < botCard.getAtk()) {
                 botScore++;
                 message += "Bot gana.";
+                playerTurn = !playerTurn;
             } else {
                 message += "Empate.";
+                playerTurn = !playerTurn;
             }
         } else {
             if (playerValue > botValue) {
                 playerScore++;
                 message += "Jugador gana.";
+                playerTurn = !playerTurn;
             } else if (playerValue < botValue) {
                 botScore++;
                 message += "Bot gana.";
+                playerTurn = !playerTurn;
             } else {
                 message += "Empate.";
+                playerTurn = !playerTurn;
             }
         }
 
