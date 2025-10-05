@@ -7,8 +7,16 @@ public class Card {
     private int def;
     private String imageUrl;
 
+    private boolean used = false;
+
     public Card(){}
 
+    public boolean isUsed() {
+        return used;
+    }
+    public void setUsed(boolean used) {
+        this.used = used;
+    }
     public String getName() {
         return name;
     }

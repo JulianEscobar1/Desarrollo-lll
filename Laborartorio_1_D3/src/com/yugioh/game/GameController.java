@@ -3,6 +3,7 @@ package com.yugioh.game;
 import com.yugioh.api.YugiohApiClient;
 import com.yugioh.model.Card;
 
+import javax.swing.*;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -69,8 +70,13 @@ public class GameController {
         } else {
             message += "Empate.";
         }
-
         logs.add(message);
+
+        if(playerScore >= 2 || botScore >= 2) {
+            message += playerScore > botScore ? " El jugador gana la partida!" : " El bot gana la partida!";
+            playerScore = 0;
+            botScore = 0;
+        }
         return message;
     }
 

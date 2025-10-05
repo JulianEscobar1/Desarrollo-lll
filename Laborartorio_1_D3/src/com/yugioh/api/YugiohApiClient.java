@@ -43,8 +43,8 @@ public class YugiohApiClient {
                     JSONObject image = cardJson.getJSONArray("card_images").getJSONObject(0);
                     Card card = new Card();
                     card.setName(cardJson.getString("name"));
-                    card.setAtk(cardJson.has("atk") && cardJson.get("atk") != null ? cardJson.getInt("atk") : 0);
-                    card.setDef(cardJson.has("def") && cardJson.get("def") != null ? cardJson.getInt("def") : 0);
+                    card.setAtk(cardJson.has("atk") && !cardJson.isNull("atk") ? cardJson.getInt("atk") : 0);
+                    card.setDef(cardJson.has("def") && !cardJson.isNull("def") ? cardJson.getInt("def") : 0);
                     card.setImageUrl(image.getString("image_url_cropped"));
                     cards.add(card);
                 }

@@ -2,6 +2,7 @@ package com.yugioh.view;
 
 import com.yugioh.game.GameController;
 import com.yugioh.model.Card;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -11,6 +12,7 @@ import java.awt.event.MouseEvent;
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.util.List;
+import javax.swing.Timer;
 
 public class Init {
     private JPanel background;
@@ -79,41 +81,43 @@ public class Init {
 
         controller = new GameController();
 
-        atkButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                playSelectedCard("atk");
-            }
-        });
+        atkButton.addActionListener(e -> playSelectedCard("atk"));
 
-        defButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                playSelectedCard("def");
-            }
-        });
+        defButton.addActionListener(e -> playSelectedCard("def"));
 
         startButton.addActionListener(new ActionListener() {
-           @Override
-              public void actionPerformed(ActionEvent e) {
+            @Override
+            public void actionPerformed(ActionEvent e) {
                 try {
-                     initCards();
-                     logTextArea.setText("");
-                     appendLog("Nueva ronda iniciada.");
-                     image_card_bot.setIcon(null);
-                     name_card_bot.setText("Nombre");
-                     atk_card_bot.setText("ATK: ");
-                     def_card_bot.setText("DEF: ");
-                     scorePlayer.setText("0");
-                     botScore.setText("0");
-                     atkButton.setEnabled(false);
-                     defButton.setEnabled(false);
+                    initCards();
+                    logTextArea.setText("");
+                    appendLog("Nueva ronda iniciada.");
+                    image_card_bot.setIcon(null);
+                    name_card_bot.setText("Nombre");
+                    atk_card_bot.setText("ATK: ");
+                    def_card_bot.setText("DEF: ");
+                    scorePlayer.setText("0");
+                    botScore.setText("0");
+                    panelCard1.setVisible(true);
+                    panelCard2.setVisible(true);
+                    panelCard3.setVisible(true);
+                    atkButton.setEnabled(false);
+                    defButton.setEnabled(false);
                 } catch (IOException | InterruptedException ex) {
-                     appendLog("Error iniciando nueva ronda: " + ex.getMessage());
+                    appendLog("Error iniciando nueva ronda: " + ex.getMessage());
                 }
-              }
+            }
         });
-
+        panelCard1.setVisible(false);
+        panelCard2.setVisible(false);
+        panelCard3.setVisible(false);
+        startButton.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mousePressed(MouseEvent e) {
+                logTextArea.setText("");
+                appendLog("Cargando partida, porfavor espere!.");
+            }
+        });
     }
 
     private void initCards() throws IOException, InterruptedException {
@@ -206,12 +210,39 @@ public class Init {
 
         scorePlayer.setText(String.valueOf(controller.getPlayerScore()));
         botScore.setText(String.valueOf(controller.getBotScore()));
+        if (!result.contains("Empate.")) {
+            if (selectedPlayerCard == 0) {
+                hideCardAfterWithTimer(panelCard1, 2000);
+            }
+            if (selectedPlayerCard == 1) {
+                hideCardAfterWithTimer(panelCard2, 2000);
+            }
+            if (selectedPlayerCard == 2) {
+                hideCardAfterWithTimer(panelCard3, 2000);
+            }
+        }
+        atkButton.setEnabled(false);
+        defButton.setEnabled(false);
+        selectedPlayerCard = -1;
+        panelCard1.setBorder(null);
+        panelCard2.setBorder(null);
+        panelCard3.setBorder(null);
+
+        if(result.contains("El jugador gana la partida!") || result.contains("El bot gana la partida!")) {
+            JOptionPane.showMessageDialog(null,result.contains("El jugador gana la partida!") ? " El jugador gana la partida!" : " El bot gana la partida!");
+        }
     }
 
     private void appendLog(String message) {
         if (logTextArea != null) {
             logTextArea.append(message + "\n");
         }
+    }
+
+    private void hideCardAfterWithTimer(JPanel cardPanel, int millis) {
+        Timer timer = new Timer(millis, e -> cardPanel.setVisible(false));
+        timer.setRepeats(false);
+        timer.start();
     }
 
     public static void main(String[] args) throws IOException, InterruptedException {
